@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(netstat *)",
+      "PowerShell(Stop-Process *)",
+      "PowerShell(Start-Process \"http://localhost:5134\")",
+      "PowerShell(Start-Process \"rundll32.exe\" -ArgumentList \"url.dll,FileProtocolHandler\", \"http://localhost:5134\")",
+      "PowerShell(Invoke-WebRequest -Uri \"http://localhost:5134/_framework/blazor.webassembly.js\" -TimeoutSec 5 -UseBasicParsing 2>&1 | Select-Object StatusCode, StatusDescription)",
+      "PowerShell(try { $r = Invoke-WebRequest -Uri \"http://localhost:5134/_framework/blazor.boot.json\" -TimeoutSec 5 -UseBasicParsing; $r.Content | ConvertFrom-Json | Select-Object -ExpandProperty resources | Get-Member } catch { Write-Output \"HATA: $_\" })",
+      "PowerShell(dotnet workload list *)",
+      "Bash(dotnet build *)",
+      "PowerShell(dotnet build *)",
+      "Bash(git init *)",
+      "Bash(git add *)"
+    ]
+  }
+}

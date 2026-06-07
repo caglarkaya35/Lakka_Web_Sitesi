@@ -1,0 +1,240 @@
+@page "/"
+
+<PageTitle>LAKKA | Atölyeden Yaşam Alanınıza</PageTitle>
+
+<!-- =========================================================
+     HERO BANNER
+========================================================== -->
+<div class="lakka-fade-in"
+     style="position:relative;height:calc(88vh + 130px);min-height:750px;
+            background-image:url('images/menu/ana_giris.jpeg');
+            background-size:cover;background-position:center;
+            display:flex;align-items:flex-end;justify-content:center;
+            padding-bottom:80px;margin-top:-130px;">
+
+    @if (_showHeroCard)
+    {
+        <div style="background-color:rgba(253,251,247,0.96);
+                    padding:48px 64px;text-align:center;max-width:620px;
+                    box-shadow:0 4px 30px rgba(0,0,0,0.08);">
+
+            <MudText Typo="Typo.overline"
+                     Style="letter-spacing:4px;color:#A38B70;font-size:0.72rem;">
+                BAHAR / 2026
+            </MudText>
+
+            <MudText Typo="Typo.h2"
+                     Style="font-family:'Cormorant Garamond',serif;color:#1A1A1A;
+                            letter-spacing:1px;margin:14px 0;font-weight:400;font-size:2.8rem;">
+                Atölyeden Yaşam Alanınıza
+            </MudText>
+
+            <MudText Typo="Typo.body1"
+                     Style="color:#6E6E6E;font-weight:300;line-height:1.7;margin-bottom:32px;">
+                İlham veren sofistike tasarımlarla, evinizi yenilemenin tam zamanı.
+            </MudText>
+
+            <MudButton Variant="Variant.Filled" DisableElevation="true"
+                       OnClick="() => _showHeroCard = false"
+                       Style="background-color:#2C2C2C;color:#FDFBF7;border-radius:0;
+                              padding:14px 38px;letter-spacing:2.5px;font-size:0.78rem;">
+                KOLEKSİYONU KEŞFET
+            </MudButton>
+        </div>
+    }
+</div>
+
+
+<!-- =========================================================
+     USP / Söz Şeridi
+========================================================== -->
+<div style="background-color:#FDFBF7;border-bottom:1px solid #E5E0D8;padding:36px 24px;">
+    <MudContainer MaxWidth="MaxWidth.ExtraLarge">
+        <MudGrid Spacing="4" Justify="Justify.SpaceAround">
+            <MudItem xs="12" sm="4" Style="text-align:center;">
+                <MudIcon Icon="@Icons.Material.Outlined.LocalShipping"
+                         Style="font-size:30px;color:#A38B70;margin-bottom:8px;" />
+                <MudText Typo="Typo.subtitle2"
+                         Style="letter-spacing:2px;text-transform:uppercase;font-size:0.78rem;color:#2C2C2C;">
+                    Ücretsiz Kargo
+                </MudText>
+                <MudText Typo="Typo.caption" Style="color:#6E6E6E;">Türkiye geneli tüm siparişler</MudText>
+            </MudItem>
+            <MudItem xs="12" sm="4" Style="text-align:center;">
+                <MudIcon Icon="@Icons.Material.Outlined.Forest"
+                         Style="font-size:30px;color:#A38B70;margin-bottom:8px;" />
+                <MudText Typo="Typo.subtitle2"
+                         Style="letter-spacing:2px;text-transform:uppercase;font-size:0.78rem;color:#2C2C2C;">
+                    Masif &amp; Sürdürülebilir
+                </MudText>
+                <MudText Typo="Typo.caption" Style="color:#6E6E6E;">Sertifikalı doğal malzemeler</MudText>
+            </MudItem>
+            <MudItem xs="12" sm="4" Style="text-align:center;">
+                <MudIcon Icon="@Icons.Material.Outlined.Handyman"
+                         Style="font-size:30px;color:#A38B70;margin-bottom:8px;" />
+                <MudText Typo="Typo.subtitle2"
+                         Style="letter-spacing:2px;text-transform:uppercase;font-size:0.78rem;color:#2C2C2C;">
+                    Usta El İşçiliği
+                </MudText>
+                <MudText Typo="Typo.caption" Style="color:#6E6E6E;">Her parça atölyede üretilir</MudText>
+            </MudItem>
+        </MudGrid>
+    </MudContainer>
+</div>
+
+
+<!-- =========================================================
+     ODA KATEGORİLERİ
+========================================================== -->
+<MudContainer MaxWidth="MaxWidth.ExtraLarge"
+              Class="lakka-fade-up"
+              Style="padding:96px 24px;">
+
+    <div style="text-align:center;margin-bottom:56px;">
+        <MudText Typo="Typo.overline"
+                 Style="letter-spacing:4px;color:#A38B70;font-size:0.72rem;">
+            KOLEKSİYON
+        </MudText>
+        <MudText Typo="Typo.h3"
+                 Style="font-family:'Cormorant Garamond',serif;color:#1A1A1A;
+                        font-size:2.4rem;margin-top:8px;">
+            Odanıza Göre Keşfedin
+        </MudText>
+    </div>
+
+    <MudGrid Spacing="6">
+        @foreach (var room in Rooms)
+        {
+            <MudItem xs="12" sm="6" md="4">
+                <div class="lakka-card" style="cursor:pointer;">
+                    <div class="lakka-img-wrap lakka-img-portrait">
+                        <img src="@room.Image" alt="@room.Name" />
+                    </div>
+                    <div style="text-align:center;margin-top:22px;">
+                        <MudText Typo="Typo.h6"
+                                 Style="font-family:'Cormorant Garamond',serif;color:#1A1A1A;letter-spacing:1px;font-size:1.4rem;">
+                            @room.Name
+                        </MudText>
+                        <a href="#" class="lakka-link-underline"
+                           style="display:inline-block;margin-top:14px;">@room.Cta</a>
+                    </div>
+                </div>
+            </MudItem>
+        }
+    </MudGrid>
+</MudContainer>
+
+
+<!-- =========================================================
+     HİKAYE / SPLIT BANNER
+========================================================== -->
+<div class="lakka-fade-up" style="margin:60px 0;">
+    <MudGrid Spacing="0">
+        <MudItem xs="12" md="6"
+                 Style="background-color:#F3EFEB;display:flex;align-items:center;justify-content:center;padding:80px 40px;">
+            <div style="max-width:460px;text-align:center;">
+                <MudText Typo="Typo.overline"
+                         Style="letter-spacing:4px;color:#A38B70;font-size:0.72rem;">
+                    HİKAYEMİZ
+                </MudText>
+                <MudText Typo="Typo.h3"
+                         Style="font-family:'Cormorant Garamond',serif;color:#1A1A1A;
+                                font-size:2.2rem;margin:14px 0 22px 0;">
+                    Zanaat ve Dokunun Kusursuz Uyumu
+                </MudText>
+                <MudText Typo="Typo.body1"
+                         Style="line-height:1.85;color:#555;margin-bottom:32px;">
+                    Her bir parça, ustalarımızın elinden çıkarak yaşam alanlarınıza ruh katmak için özenle tasarlanmıştır. Doğal malzemeler ve zamansız estetiği bir araya getiriyoruz.
+                </MudText>
+                <MudButton Variant="Variant.Outlined" DisableElevation="true"
+                           Style="border:1px solid #2C2C2C;color:#2C2C2C;background-color:transparent;border-radius:0;
+                                  padding:12px 30px;letter-spacing:2px;font-size:0.78rem;">
+                    HİKAYEMİZİ OKUYUN
+                </MudButton>
+            </div>
+        </MudItem>
+
+        <MudItem xs="12" md="6">
+            <div class="lakka-img-wrap" style="height:100%;min-height:480px;">
+                <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1200&q=80"
+                     alt="Atölyemiz" />
+            </div>
+        </MudItem>
+    </MudGrid>
+</div>
+
+
+<!-- =========================================================
+     SEZONUN FAVORİLERİ
+========================================================== -->
+<MudContainer MaxWidth="MaxWidth.ExtraLarge"
+              Class="lakka-fade-up"
+              Style="padding:96px 24px;">
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:12px;">
+        <div>
+            <MudText Typo="Typo.overline"
+                     Style="letter-spacing:4px;color:#A38B70;font-size:0.72rem;">
+                YENİ
+            </MudText>
+            <MudText Typo="Typo.h3"
+                     Style="font-family:'Cormorant Garamond',serif;color:#1A1A1A;font-size:2.4rem;margin-top:6px;">
+                Sezonun Favorileri
+            </MudText>
+        </div>
+        <a href="#" class="lakka-link-underline">Tümünü Gör</a>
+    </div>
+
+    <MudGrid Spacing="4">
+        @foreach (var p in Products)
+        {
+            <MudItem xs="12" sm="6" md="3">
+                <div class="lakka-product" style="position:relative;cursor:pointer;">
+                    <div class="lakka-img-wrap lakka-img-square">
+                        <img src="@p.Image"      alt="@p.Name" />
+                        <img src="@p.HoverImage" alt="@p.Name" class="lakka-hover-img" />
+                        <div class="lakka-quick-add">
+                            <MudButton FullWidth="true" Variant="Variant.Filled" DisableElevation="true"
+                                       Style="background-color:rgba(253,251,247,0.96);color:#2C2C2C;border-radius:0;
+                                              letter-spacing:2px;font-weight:600;font-size:0.72rem;padding:12px;">
+                                SEPETE EKLE
+                            </MudButton>
+                        </div>
+                    </div>
+                    <div style="margin-top:18px;text-align:left;">
+                        <MudText Typo="Typo.body1"
+                                 Style="font-family:'Cormorant Garamond',serif;color:#1A1A1A;font-size:1.2rem;margin-bottom:4px;">
+                            @p.Name
+                        </MudText>
+                        <MudText Typo="Typo.body2" Style="color:#6E6E6E;font-size:0.92rem;">
+                            @p.Price.ToString("N0") ₺
+                        </MudText>
+                    </div>
+                </div>
+            </MudItem>
+        }
+    </MudGrid>
+</MudContainer>
+
+
+@code {
+    private bool _showHeroCard = true;
+
+    private record Room(string Name, string Image, string Cta);
+    private record Product(string Name, decimal Price, string Image, string HoverImage);
+
+    private readonly List<Room> Rooms = new()
+    {
+        new Room("Oturma Odası", "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=900&q=80",       "Koltukları İncele"),
+        new Room("Yemek Odası",  "https://images.unsplash.com/photo-1617806118233-18e1c0945594?auto=format&fit=crop&w=900&q=80",       "Masaları İncele"),
+        new Room("Yatak Odası",  "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80",       "Tasarımları İncele")
+    };
+
+    private readonly List<Product> Products = new()
+    {
+        new Product("Staffordshire Berjer",   12500, "https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&w=600&q=80", "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80"),
+        new Product("Keten Dokulu Kırlent",     850, "https://images.unsplash.com/photo-1584100936595-c0654b355040?auto=format&fit=crop&w=600&q=80", "https://images.unsplash.com/photo-1579656381226-5fc0f0100c3b?auto=format&fit=crop&w=600&q=80"),
+        new Product("Meşe Yemek Masası",      34000, "https://images.unsplash.com/photo-1604578762246-41134e37f9cc?auto=format&fit=crop&w=600&q=80", "https://images.unsplash.com/photo-1595514535313-e7f09f06e788?auto=format&fit=crop&w=600&q=80"),
+        new Product("Cam Küre Abajur",         4200, "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80", "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=600&q=80")
+    };
+}
