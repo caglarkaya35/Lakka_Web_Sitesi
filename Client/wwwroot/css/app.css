@@ -321,8 +321,10 @@ html, body {
 .lakka-room-grid-tile-hover {
     position: absolute;
     inset: 0;
-    background-size: cover;
+    background-color: var(--lakka-soft);
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
     opacity: 0;
     transition: opacity 0.35s ease;
 }
