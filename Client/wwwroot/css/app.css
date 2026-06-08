@@ -301,7 +301,7 @@ html, body {
 
 .lakka-room-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);   /* satırda 4, fazlası alt satıra akar */
+    grid-template-columns: repeat(3, 1fr);   /* satırda 3, fazlası alt satıra akar */
     gap: 16px;
 }
 
