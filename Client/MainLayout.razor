@@ -12,7 +12,7 @@
         <div style="width:100%;display:flex;align-items:center;padding:10px 28px;gap:22px;">
 
             <!-- SOL: Logo -->
-            <a href="/" style="display:flex;align-items:center;flex-shrink:0;text-decoration:none;">
+            <a href="" style="display:flex;align-items:center;flex-shrink:0;text-decoration:none;">
                 <img src="images/lakka-logo.jpg" alt="LAKKA Mobilya"
                      style="height:56px;width:auto;object-fit:contain;display:block;" />
             </a>
@@ -215,7 +215,7 @@
             RoomCatalog.All.Select(r => r.Name).ToArray(),
             ImageUrl: "",
             SubItemImages: RoomCatalog.All.Select(r => r.Images.FirstOrDefault() ?? "").ToArray(),
-            SubItemHrefs:  RoomCatalog.All.Select(r => $"/odalar/{r.Slug}").ToArray()),
+            SubItemHrefs:  RoomCatalog.All.Select(r => $"odalar/{r.Slug}").ToArray()),
         new NavMenu("Mobilya",         new[] { "Koltuklar", "Berjerler", "Yemek Masaları", "Sandalyeler", "Yatak Bazaları", "Gardıroplar", "Komodinler", "Sehpalar", "TV Üniteleri" }, ImageUrl: ""),
         new NavMenu("Döşeme",          new[] { "Halılar", "Kilimler", "Perdeler", "Tüller", "Kırlentler", "Yatak Örtüleri", "Battaniyeler", "Havlular" },        ImageUrl: ""),
         new NavMenu("Aydınlatma",      new[] { "Avizeler", "Sarkıt Lambalar", "Masa Lambaları", "Yer Lambaları", "Aplikler", "Spot ve Ray" },                    ImageUrl: ""),
