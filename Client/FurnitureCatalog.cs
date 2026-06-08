@@ -13,7 +13,7 @@ public static class FurnitureCatalog
         new FurnitureInfo("yatak-bazalari",  "Yatak Bazaları", Array.Empty<string>()),
         new FurnitureInfo("gardiroplar",     "Gardıroplar",    Array.Empty<string>()),
         new FurnitureInfo("komodinler",      "Komodinler",     Array.Empty<string>()),
-        new FurnitureInfo("sehpalar",        "Sehpalar",       new[] { "images/mobilya/sehpalar/sehpa_1.png" }),
+        new FurnitureInfo("sehpalar",        "Sehpalar",       new[] { "images/mobilya/sehpalar/sehpa.png" }),
         new FurnitureInfo("tv-uniteleri",    "TV Üniteleri",   Array.Empty<string>()),
     };
 
