@@ -1,0 +1,71 @@
+@page "/mobilya/{Slug}"
+
+<PageTitle>@(_item?.Name ?? "Mobilya") | LAKKA</PageTitle>
+
+@if (_item is null)
+{
+    <MudContainer MaxWidth="MaxWidth.Medium" Style="padding:140px 24px;text-align:center;">
+        <MudText Typo="Typo.overline" Style="letter-spacing:4px;color:#A38B70;font-size:0.72rem;">
+            MOBİLYA
+        </MudText>
+        <MudText Typo="Typo.h3"
+                 Style="font-family:'Cormorant Garamond',serif;color:#1A1A1A;font-size:2.2rem;margin-top:10px;">
+            Aradığınız kategori bulunamadı
+        </MudText>
+        <MudText Typo="Typo.body1" Style="color:#6E6E6E;margin-top:14px;line-height:1.8;">
+            Lütfen menüden geçerli bir mobilya kategorisi seçin.
+        </MudText>
+        <a href="" class="lakka-link-underline" style="display:inline-block;margin-top:28px;">
+            ANA SAYFAYA DÖN
+        </a>
+    </MudContainer>
+}
+else
+{
+    <MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="lakka-fade-up" Style="padding:96px 24px;">
+
+        <div style="text-align:center;margin-bottom:56px;">
+            <MudText Typo="Typo.overline" Style="letter-spacing:4px;color:#A38B70;font-size:0.72rem;">
+                KOLEKSİYON
+            </MudText>
+            <MudText Typo="Typo.h3"
+                     Style="font-family:'Cormorant Garamond',serif;color:#1A1A1A;font-size:2.4rem;margin-top:8px;">
+                @_item.Name
+            </MudText>
+        </div>
+
+        @if (_item.Images.Length == 0)
+        {
+            <div style="background-color:#F3EFEB;padding:80px 40px;text-align:center;">
+                <MudText Typo="Typo.body1" Style="color:#6E6E6E;line-height:1.85;">
+                    @_item.Name için fotoğraflar yakında eklenecek.
+                </MudText>
+            </div>
+        }
+        else
+        {
+            <!-- Üst: tek büyük "hero" foto — kategorinin baş görseli -->
+            <div class="lakka-room-hero" style="background-image:url('@_item.Images[0]');"></div>
+
+            <!-- Alt: o kategoriye ait tüm fotolar, satırda 4 karo -->
+            <div class="lakka-room-grid">
+                @foreach (var img in _item.Images)
+                {
+                    <div class="lakka-room-grid-tile" style="background-image:url('@img');"></div>
+                }
+            </div>
+        }
+
+    </MudContainer>
+}
+
+@code {
+    [Parameter] public string? Slug { get; set; }
+
+    private FurnitureInfo? _item;
+
+    protected override void OnParametersSet()
+    {
+        _item = FurnitureCatalog.FindBySlug(Slug);
+    }
+}
