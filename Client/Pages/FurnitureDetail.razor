@@ -49,9 +49,19 @@ else
 
             <!-- Alt: o kategoriye ait tüm fotolar, satırda 4 karo -->
             <div class="lakka-room-grid">
-                @foreach (var img in _item.Images)
+                @for (int i = 0; i < _item.Images.Length; i++)
                 {
-                    <div class="lakka-room-grid-tile" style="background-image:url('@img');"></div>
+                    var img = _item.Images[i];
+                    var hoverImg = _item.HoverImages is not null && i < _item.HoverImages.Length
+                        ? _item.HoverImages[i]
+                        : null;
+                    <div class="lakka-room-grid-tile" style="background-image:url('@img');">
+                        @if (!string.IsNullOrEmpty(hoverImg))
+                        {
+                            <div class="lakka-room-grid-tile-hover"
+                                 style="background-image:url('@hoverImg');"></div>
+                        }
+                    </div>
                 }
             </div>
         }

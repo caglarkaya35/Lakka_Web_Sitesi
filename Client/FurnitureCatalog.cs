@@ -1,6 +1,6 @@
 namespace Lakka_Mobilya_Web.Client;
 
-public sealed record FurnitureInfo(string Slug, string Name, string[] Images);
+public sealed record FurnitureInfo(string Slug, string Name, string[] Images, string?[]? HoverImages = null);
 
 public static class FurnitureCatalog
 {
@@ -13,7 +13,9 @@ public static class FurnitureCatalog
         new FurnitureInfo("yatak-bazalari",  "Yatak Bazaları", Array.Empty<string>()),
         new FurnitureInfo("gardiroplar",     "Gardıroplar",    Array.Empty<string>()),
         new FurnitureInfo("komodinler",      "Komodinler",     Array.Empty<string>()),
-        new FurnitureInfo("sehpalar",        "Sehpalar",       new[] { "images/mobilya/sehpalar/sehpa.png" }),
+        new FurnitureInfo("sehpalar",        "Sehpalar",
+            new[] { "images/mobilya/sehpalar/sehpa.png" },
+            HoverImages: new string?[] { "images/mobilya/sehpalar/sehpa_2.png" }),
         new FurnitureInfo("tv-uniteleri",    "TV Üniteleri",   Array.Empty<string>()),
     };
 

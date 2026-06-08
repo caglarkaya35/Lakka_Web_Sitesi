@@ -306,6 +306,8 @@ html, body {
 }
 
 .lakka-room-grid-tile {
+    position: relative;
+    overflow: hidden;
     aspect-ratio: 4 / 3;
     background-color: var(--lakka-soft);
     background-size: cover;
@@ -315,6 +317,17 @@ html, body {
 }
 
 .lakka-room-grid-tile:hover { transform: scale(1.02); }
+
+.lakka-room-grid-tile-hover {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.lakka-room-grid-tile:hover .lakka-room-grid-tile-hover { opacity: 1; }
 
 /* ====================================================
    Footer link hover
