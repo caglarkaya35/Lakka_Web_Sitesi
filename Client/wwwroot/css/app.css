@@ -289,6 +289,7 @@ html, body {
    foto + altında 4 sütunlu küçük foto ızgarası
    ==================================================== */
 .lakka-room-hero {
+    position: relative;
     width: 100%;
     height: 52vh;
     min-height: 340px;
@@ -330,6 +331,25 @@ html, body {
 }
 
 .lakka-room-grid-tile:hover .lakka-room-grid-tile-hover { opacity: 1; }
+
+/* LAKKA logo overlay — fotoğrafların sağ-alt köşesindeki AI damgasını örter */
+.lakka-room-hero::after,
+.lakka-room-grid-tile::after,
+.lakka-room-grid-tile-hover::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 18%;
+    aspect-ratio: 3 / 1;
+    max-width: 140px;
+    background-image: url("../images/lakka-logo.jpg");
+    background-size: contain;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 2;
+}
 
 /* ====================================================
    Footer link hover
