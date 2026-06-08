@@ -290,7 +290,9 @@ html, body {
    ==================================================== */
 .lakka-room-hero {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    height: 52vh;
+    min-height: 340px;
+    max-height: 520px;
     background-color: var(--lakka-soft);
     background-size: cover;
     background-position: center;
