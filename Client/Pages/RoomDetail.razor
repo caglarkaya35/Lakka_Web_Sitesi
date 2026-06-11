@@ -47,13 +47,16 @@ else
             <!-- Üst: tek büyük "hero" foto — odanın baş görseli, alanın tamamını kaplar -->
             <div class="lakka-room-hero" style="background-image:url('@_room.Images[0]');"></div>
 
-            <!-- Alt: o odaya ait tüm fotolar, satırda 4 karo, taşan satırlara akar -->
-            <div class="lakka-room-grid">
-                @foreach (var img in _room.Images)
-                {
-                    <div class="lakka-room-grid-tile" style="background-image:url('@img');"></div>
-                }
-            </div>
+            <!-- Alt: o odaya ait diğer fotolar (hero ilk fotoyu zaten gösteriyor), satırda 4 karo, taşan satırlara akar -->
+            @if (_room.Images.Length > 1)
+            {
+                <div class="lakka-room-grid">
+                    @foreach (var img in _room.Images.Skip(1))
+                    {
+                        <div class="lakka-room-grid-tile" style="background-image:url('@img');"></div>
+                    }
+                </div>
+            }
         }
 
     </MudContainer>
