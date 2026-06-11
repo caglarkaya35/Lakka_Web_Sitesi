@@ -11,7 +11,7 @@ public static class RoomCatalog
             "images/odalar/oturma-odasi/Oturma_Odasi_1.jpeg",
         }),
         new RoomInfo("yemek-odasi",   "Yemek Odası",   Array.Empty<string>()),
-        new RoomInfo("mutfak",        "Mutfak",        Array.Empty<string>()),
+        new RoomInfo("mutfak",        "Mutfak",        new[] { "images/odalar/mutfak/mutfak_1.jpeg" }),
         new RoomInfo("yatak-odasi",   "Yatak Odası",   new[] { "images/odalar/yatak-odasi/Yatak_Odasi.jpeg" }),
         new RoomInfo("calisma-odasi", "Çalışma Odası", new[]
         {
